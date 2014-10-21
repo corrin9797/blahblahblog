@@ -14,6 +14,11 @@ def home():
         content = request.form['content']
         return render_template('print.html', title=title, content=content)
         
+@app.route("/post", methods=["GET","POST"])
+def post():
+    return render_template("post.html")
+
+
 
 
 if __name__ == "__main__":
