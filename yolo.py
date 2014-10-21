@@ -1,9 +1,26 @@
 from flask import Flask,render_template,request
 import sqlite3
+import csv
 
 app = Flask(__name__) 
 
 ###
+#this is how you loop through a database using csv (instructions
+#      for a future me):
+#
+#(after conn and curs are used)
+#
+#Base="insert into posts values('%(title)s','%(post)s')"
+#for line in csv.DictReader(open("your csv file, remember to init")):
+#	q=Base%line
+#	print q            (for testing purposes)
+#	curs.execute(q)
+#
+#      then read out the table using select & stuff and put it on
+#      the HTML, or even just put it in the html as you loop through
+#      though that might be difficult
+
+
 
 @app.route("/test",methods=['GET','POST'])
 def home():
