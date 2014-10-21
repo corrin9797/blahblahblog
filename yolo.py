@@ -21,7 +21,7 @@ postdb = "yolo.db"
 #      though that might be difficult
 
 
-
+@app.route("/")
 @app.route("/test",methods=['GET','POST'])
 def home():
     conn = sqlite3.connect(postdb)

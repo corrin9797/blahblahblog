@@ -5,9 +5,13 @@
 </head>
 <body>
 <h1>test</h1>
+<form action="test" method="post">
+<input type="text" name="title" value="title"><br>
+<textarea name="body">body</textarea><br>
+<input type="submit" name="post" value="post"><br>
+</form><br>
 {% for post in posts %}
-{{post[0]}} - {{post[1]}}<br>
-{{post[2]}}<br>
+<a href="post/{{post[1]}}">{{post[0]}} - {{post[1]}}</a>
 <br>
 {% endfor %}
 </body>
