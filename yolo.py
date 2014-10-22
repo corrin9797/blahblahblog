@@ -12,14 +12,25 @@ postdb = "yolo.db"
 #
 #Base="insert into posts values('%(title)s','%(post)s')"
 #for line in csv.DictReader(open("your csv file, remember to init")):
-#	q=Base%line
-#	print q            (for testing purposes)
-#	curs.execute(q)
+#    q=Base%line
+#    print q            (for testing purposes)
+#    curs.execute(q)
 #
 #      then read out the table using select & stuff and put it on
 #      the HTML, or even just put it in the html as you loop through
 #      though that might be difficult
 
+#helper function for reading:
+def helpReader():
+    conn = sqlite3.connect("yolo.db")
+    curs = conn.cursor()
+    Base="insert into posts values(%(id)d,'%(title)s','%(post)s')"
+    for line in csv.DictReader(open("storage.csv")):
+        q=Base%line
+        print q #for testing purposes
+        curs.execute(q)
+    conn.commit()
+    conn.close()
 
 @app.route("/")
 @app.route("/test",methods=['GET','POST'])
