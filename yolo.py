@@ -70,7 +70,7 @@ def getpost(title):
 
 @app.route("/newpost",methods=['GET','POST'])
 def newpost():
-    return render_template("newpost.html")
+    return render_template("post2.html")
 
 ###
 
