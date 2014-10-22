@@ -10,7 +10,6 @@
       <a class="pure-button" href="/">Home</a>
 	<h1 align="center"><font color="white">Blahblahblog</font></h1>
 	<hr>
-	
 	<form class="pure-form pure-form-aligned" action="test"  method="POST">
 	<fieldset>
           <legend>><font color="white">Add your own blogpost:</legend>
@@ -19,12 +18,14 @@
 	  <button type="submit" class="pure-button pure-button-primary">Upload</button>
 	</fieldset>
       </form>
-      <br><br>
-      {% for post in posts %}
-      <h2><a href="post/{{post[1]}}">{{post[0]}} - {{post[1]}}</a></h2>
-      {{post[2]}}
-      <br><br>
-      {% endfor %}
+	<hr>
+	{% for post in posts %}
+	<h2><a href="post/{{post[1]}}">{{post[0]}} - {{post[1]}}</a></h2>
+	{{post[2]}}
+	<br>
+	<br>
+	<hr>
+	{% endfor %}
     </div>
   </div>
 </div>
