@@ -20,7 +20,11 @@
       </form>
 	<hr>
 	{% for post in posts %}
-	<h2><a href="post/{{post[1]}}">{{post[0]}} - {{post[1]}}</a></h2>
+	<h2><a href="post/{{post[1]}}">{{post[1]}}</a></h2>
+	{{post[2]}}
+	<br>
+	<br>
+	<hr>
 	{% endfor %}
     </div>
   </div>
