@@ -1,4 +1,4 @@
 blahblahblog
 ============
 
-softdev blog project (Corrin, Terrance, Mark)
+softdev blog project (Corrin, Terrance, Mark, Lawrence)
