@@ -12,18 +12,19 @@
 	<h1 align="center"><font color="white">Blahblahblog</font></h1>
 	<hr>
 	<h2> <font color="white">{{post[0]}} - {{post[1]}}</font></h2>
-	<h3><font color="blue">&emsp;&emsp;Author</font></h3>
 	{{post[2]}}
 	<br>
 	<br>
 	<hr>
-	<h3> <font color="blue">Author</font></h3>
-	This is a bunch of comments that can be made blah blah blah.
+    {% for comment in comments %}
+	<h3> <font color="blue">{{comment[1]}} - {{comment[2]}}</font></h3>
+    {{comment[3]}}
 	<br>
+    {% endfor %}
 	<br>
-	<form class="pure-form pure-form-aligned" method="POST" action="test">
+	<form class="pure-form pure-form-aligned" method="POST">
 	  <fieldset>
-	    <legend><font color="white">Comment:</legend>
+	    <legend><font color="white">Comment:</font></legend>
 	    <input class="pure-input-8-24" name="author" type="text" placeholder="Name"><br>
 	    <div class="pure-u-1">
 	    <textarea class="pure-input-2-3" name="comment" type="text" placeholder="Comment" rows="10" cols="30"></textarea><br></div>

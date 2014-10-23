@@ -58,15 +58,30 @@ def home():
     return render_template("test.html",
                            posts=posts)
 
-@app.route("/post/<title>")
+@app.route("/post/<title>",methods=['GET','POST'])
 def getpost(title):
     conn = sqlite3.connect(postdb)
     curs = conn.cursor()
+    if request.method=="POST":
+        newcontent = request.form["comment"]
+        if len(newcontent)!=0:
+            newauthor = request.form["author"]
+            query = "SELECT count(*) FROM comments WHERE post=?"
+            result = curs.execute(query,[title])
+            newid = result.fetchone()[0] + 1
+            query = "INSERT INTO comments VALUES(?,?,?,?)"
+            curs.execute(query,[title,newid,newauthor,newcontent])
+            conn.commit()
     query = "SELECT * FROM posts WHERE title=?"
     curs.execute(query,[title])
     post = curs.fetchone()
+    query = "SELECT * FROM comments WHERE post=? ORDER BY id ASC"
+    curs.execute(query,[title])
+    comments = curs.fetchall()
+    print comments
     return render_template("post.html",
-                           post=post)
+                           post=post,
+                           comments=comments)
 
 @app.route("/newpost",methods=['GET','POST'])
 def newpost():
