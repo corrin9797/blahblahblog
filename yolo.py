@@ -83,10 +83,6 @@ def getpost(title):
                            post=post,
                            comments=comments)
 
-@app.route("/newpost",methods=['GET','POST'])
-def newpost():
-    return render_template("post2.html")
-
 ###
 
 if __name__ == "__main__":
